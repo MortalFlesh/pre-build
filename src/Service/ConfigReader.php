@@ -1,6 +1,6 @@
 <?php
 
-namespace MF\PreBuild\Facade;
+namespace MF\PreBuild\Service;
 
 use Assert\Assertion;
 use MF\PreBuild\Entity\Config;

@@ -3,7 +3,7 @@
 namespace MF\PreBuild\Tests;
 
 use MF\PreBuild\Entity\GitConfig;
-use MF\PreBuild\Facade\ConfigReader;
+use MF\PreBuild\Service\ConfigReader;
 use PHPUnit\Framework\TestCase;
 use Symfony\Component\Yaml\Yaml;
 

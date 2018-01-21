@@ -11,4 +11,9 @@ class GitConfig
     {
         $this->values = $values;
     }
+
+    public function getValues(): iterable
+    {
+        return $this->values;
+    }
 }

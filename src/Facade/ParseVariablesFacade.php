@@ -2,6 +2,7 @@
 
 namespace MF\PreBuild\Facade;
 
+use MF\PreBuild\Service\ConfigReader;
 use MF\PreBuild\Service\GitParser;
 use MF\PreBuild\Service\VariablesExporter;
 
