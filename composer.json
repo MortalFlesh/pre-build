@@ -24,7 +24,8 @@
         "php": ">=7.1",
         "beberlei/assert": "^2.8",
         "mf/collections-php": "^3.1",
-        "symfony/console": "^4.0"
+        "symfony/console": "^4.0",
+        "symfony/yaml": "^4.0"
     },
     "require-dev": {
         "mockery/mockery": "^1.0",
