@@ -26,9 +26,18 @@ abstract class AbstractCommand extends Command
 
     protected function initialize(InputInterface $input, OutputInterface $output): void
     {
+        $this->io = new SymfonyStyle($input, $output);
+
+        if (!$this->io->isVerbose()) {
+            ini_set('display_errors', 0);
+            ini_set('error_reporting', 0);
+        }
+    }
+
+    protected function title()
+    {
         list('version' => $version) = $this->composer;
 
-        $this->io = new SymfonyStyle($input, $output);
         $this->io->title(
             sprintf(
                 '<fg=cyan>MF/Pre build</> [<fg=magenta>%s</>] will prepare everything for you <fg=red>:)</>',
@@ -36,11 +45,6 @@ abstract class AbstractCommand extends Command
             )
         );
         $this->io->section($this->getName());
-
-        if (!$this->io->isVerbose()) {
-            ini_set('display_errors', 0);
-            ini_set('error_reporting', 0);
-        }
     }
 
     public function setName($name)

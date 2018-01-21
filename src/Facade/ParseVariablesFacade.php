@@ -2,6 +2,7 @@
 
 namespace MF\PreBuild\Facade;
 
+use MF\PreBuild\Entity\Variables;
 use MF\PreBuild\Service\ConfigReader;
 use MF\PreBuild\Service\GitParser;
 use MF\PreBuild\Service\VariablesExporter;
@@ -24,13 +25,13 @@ class ParseVariablesFacade
         $this->variablesExporter = $variablesExporter;
     }
 
-    public function parseVariables(string $configPath): void
+    public function parseVariables(string $configPath): Variables
     {
         $config = $this->configReader->readConfig($configPath);
 
         $gitValues = $this->gitParser->parseGitValues($config);
 
-        $this->variablesExporter
+        return $this->variablesExporter
             ->addSource($gitValues)
             ->export();
     }

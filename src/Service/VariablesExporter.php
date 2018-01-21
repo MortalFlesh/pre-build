@@ -2,18 +2,38 @@
 
 namespace MF\PreBuild\Service;
 
+use MF\Collection\Mutable\Generic\ListCollection;
 use MF\PreBuild\Entity\Variables;
 
 class VariablesExporter
 {
+    /** @var Variables[]|ListCollection<Variables> */
+    private $variables;
 
-    public function addSource(Variables $gitValues): self
+    public function __construct()
     {
-        throw new \Exception(sprintf('Method %s is not implemented yet.', __METHOD__));
+        $this->variables = new ListCollection(Variables::class);
     }
 
-    public function export(): void
+    public function addSource(Variables $variables): self
     {
-        throw new \Exception(sprintf('Method %s is not implemented yet.', __METHOD__));
+        $this->variables->add($variables);
+
+        return $this;
+    }
+
+    public function export(): Variables
+    {
+        return $this->variables
+            ->reduce(
+                function (Variables $all, Variables $current) {
+                    foreach ($current as $key => $value) {
+                        $all->set($key, $value);
+                    }
+
+                    return $all;
+                },
+                new Variables()
+            );
     }
 }
