@@ -1,0 +1,11 @@
+/vendor/
+/code-coverage/
+composer.lock
+
+bin/
+!/bin/pre-build-console
+
+.php_cs.cache
+
+/tools/**
+!/tools/*/composer.json

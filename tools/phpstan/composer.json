@@ -1,0 +1,15 @@
+{
+    "name": "tools/phpstan",
+    "require": {
+        "phpstan/phpstan": "^0.9.1"
+    },
+    "authors": [
+        {
+            "name": "Petr Chromec",
+            "email": "mortal_flesh@seznam.cz"
+        }
+    ],
+    "scripts": {
+        "link": "cd ../../bin/ && ln -sf ../tools/phpstan/vendor/bin/phpstan phpstan"
+    }
+}

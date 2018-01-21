@@ -1,0 +1,66 @@
+{
+    "name": "mf/pre-build",
+    "description": "Pre build commands for exporting variables for building a package",
+    "type": "project",
+    "license": "MIT",
+    "version": "0.0.0",
+    "authors": [
+        {
+            "name": "Petr Chromec",
+            "email": "mortal_flesh@seznam.cz"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "MF\\PreBuild\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "MF\\PreBuild\\Tests\\": "tests/"
+        }
+    },
+    "require": {
+        "php": ">=7.1",
+        "beberlei/assert": "^2.8",
+        "mf/collections-php": "^3.1",
+        "symfony/console": "^4.0"
+    },
+    "require-dev": {
+        "mockery/mockery": "^1.0",
+        "phpunit/phpunit": "^6.5",
+        "squizlabs/php_codesniffer": "^3.2",
+        "symfony/var-dumper": "^4.0"
+    },
+    "bin": [
+        "bin/pre-build-console"
+    ],
+    "config": {
+        "bin-dir": "bin",
+        "sort-packages": true
+    },
+    "extra": {
+        "symfony-bin-dir": "bin",
+        "symfony-tests-dir": "tests"
+    },
+    "scripts": {
+        "test": [
+            "@installTools",
+            "@cs",
+            "@phpunit",
+            "@phpstan"
+        ],
+        "cs": "bin/phpcs --standard=ruleset.xml .",
+        "phpunit": "bin/phpunit -c phpunit.xml.dist",
+        "phpstan": "bin/phpstan analyse -l 7 -c phpstan.neon src tests",
+        "fix": [
+            "bin/php-cs-fixer fix src",
+            "bin/php-cs-fixer fix tests",
+            "bin/phpcbf --standard=ruleset.xml ."
+        ],
+        "installTools": [
+            "cd tools/phpstan && composer install && composer link",
+            "cd tools/csfixer && composer install && composer link"
+        ]
+    }
+}
