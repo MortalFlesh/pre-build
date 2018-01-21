@@ -5,6 +5,8 @@ namespace MF\PreBuild;
 
 use MF\Collection\Mutable\Generic\ListCollection;
 use MF\PreBuild\Command\AbstractCommand;
+use MF\PreBuild\Command\ParseVariablesCommand;
+use MF\PreBuild\Facade\ParseVariablesFacade;
 use Symfony\Component\Console\Application;
 
 function requireIfExists(string $file)
@@ -35,6 +37,7 @@ $composer = json_decode(file_get_contents(__DIR__ . '/../composer.json'), true);
 
 // Commands
 $commands = new ListCollection(AbstractCommand::class);
+$commands->add(new ParseVariablesCommand($composer, new ParseVariablesFacade()));
 
 // Prepare services
 

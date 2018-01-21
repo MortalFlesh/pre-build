@@ -9,3 +9,23 @@ Pre Build - WIP
 
 Pre build commands for exporting variables for building a package
 
+## Installation
+```bash
+composer require mf/pre-build
+```
+
+
+## How to run it?
+```bash
+vendor/bin/pre-build-console pre-build:parse-variables -c .pre-build.yml
+```
+
+## Example of config file
+```yaml
+pre-build:
+    parse:
+        git:
+            commit: GIT_COMMIT
+            url:    GIT_URL
+            branch: GIT_BRANCH
+```
