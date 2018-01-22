@@ -3,9 +3,17 @@
 
 namespace MF\PreBuild;
 
+use GitWrapper\GitWrapper;
 use MF\Collection\Mutable\Generic\ListCollection;
 use MF\PreBuild\Command\AbstractCommand;
+use MF\PreBuild\Command\ParseVariablesCommand;
+use MF\PreBuild\Service\ConfigReader;
+use MF\PreBuild\Facade\ParseVariablesFacade;
+use MF\PreBuild\Git\GitCommandFactory;
+use MF\PreBuild\Service\GitParser;
+use MF\PreBuild\Service\VariablesExporter;
 use Symfony\Component\Console\Application;
+use Symfony\Component\Yaml\Yaml;
 
 function requireIfExists(string $file)
 {
@@ -31,10 +39,22 @@ $composer = json_decode(file_get_contents(__DIR__ . '/../composer.json'), true);
 
 // services definition
 
+$configReader = new ConfigReader(new Yaml());
+$gitWrapper = new GitWrapper();
+$gitCommandFactory = new GitCommandFactory();
+$gitParser = new GitParser($gitWrapper, $gitCommandFactory);
+$variablesExporter = new VariablesExporter();
+
 // Subscribers
 
 // Commands
 $commands = new ListCollection(AbstractCommand::class);
+$commands->add(
+    new ParseVariablesCommand(
+        $composer,
+        new ParseVariablesFacade($configReader, $gitParser, $variablesExporter)
+    )
+);
 
 // Prepare services
 
