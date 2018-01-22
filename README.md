@@ -17,10 +17,10 @@ composer require mf/pre-build
 
 ## How to run it?
 ```bash
-vendor/bin/pre-build-console pre-build:parse-variables
+source <(php vendor/bin/pre-build-console pre-build:parse-variables)
 ```
 
-## Example of config file
+### Example of config file
 ```yaml
 pre-build:
     parse:
@@ -28,6 +28,13 @@ pre-build:
             commit: GIT_COMMIT
             url:    GIT_URL
             branch: GIT_BRANCH
+```
+
+### Result:
+```bash
+$ echo $GIT_COMMIT
+$ echo $GIT_URL
+$ echo $GIT_BRANCH
 ```
 
 
