@@ -1,5 +1,5 @@
-Pre Build - WIP
-===============
+Pre Build
+=========
 
 [![Latest Stable Version](https://img.shields.io/packagist/v/mf/pre-build.svg)](https://packagist.org/packages/mf/pre-build)
 [![Total Downloads](https://img.shields.io/packagist/dt/mf/pre-build.svg)](https://packagist.org/packages/mf/pre-build)
