@@ -42,7 +42,7 @@ class ParseVariablesCommand extends AbstractCommand
 
             if ($isStdOutput) {
                 foreach ($variables as $key => $value) {
-                    $this->io->writeln(sprintf('%s=%s', $key, $value));
+                    $this->io->writeln(sprintf('export %s=%s', $key, $value));
                 }
             } else {
                 $this->title();
