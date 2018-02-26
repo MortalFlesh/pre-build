@@ -5,6 +5,7 @@ namespace MF\PreBuild\Tests;
 use GitWrapper\GitWrapper;
 use MF\PreBuild\Entity\Config;
 use MF\PreBuild\Entity\GitConfig;
+use MF\PreBuild\Entity\Md5SumConfig;
 use MF\PreBuild\Git\GitCommandFactory;
 use MF\PreBuild\Service\GitParser;
 use MF\PreBuild\Tests\Fixtures\Git\GitCommand;
@@ -39,7 +40,8 @@ class GitParserTest extends TestCase
                 'commit' => 'GIT_COMMIT',
                 'branch' => 'GIT_BRANCH',
                 'url' => 'GIT_URL',
-            ])
+            ]),
+            null
         );
         $expectedVariables = [
             'GIT_COMMIT' => 'VALUE-commit',

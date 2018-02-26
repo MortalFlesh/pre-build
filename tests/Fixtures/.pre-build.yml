@@ -5,5 +5,5 @@ pre-build:
             url:    GIT_URL
             branch: GIT_BRANCH
         md5sum:
-            www/static/css/vysokeskoly.min.css: CSSVER
-            www/static/js/vysokeskoly.min.js: JSVER
+            tests/Fixtures/Md5/style.css: CSSVER
+            tests/Fixtures/Md5/index.js: JSVER

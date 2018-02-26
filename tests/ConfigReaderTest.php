@@ -3,6 +3,7 @@
 namespace MF\PreBuild\Tests;
 
 use MF\PreBuild\Entity\GitConfig;
+use MF\PreBuild\Entity\Md5SumConfig;
 use MF\PreBuild\Service\ConfigReader;
 use PHPUnit\Framework\TestCase;
 use Symfony\Component\Yaml\Yaml;
@@ -30,5 +31,17 @@ class ConfigReaderTest extends TestCase
         $config = $this->configReader->readConfig(__DIR__ . '/Fixtures/.pre-build.yml');
 
         $this->assertEquals($gitConfig, $config->getGitConfig());
+    }
+
+    public function testShouldReadMd5SumConfig()
+    {
+        $md5SumConfig = new Md5SumConfig([
+            'tests/Fixtures/Md5/style.css' => 'CSSVER',
+            'tests/Fixtures/Md5/index.js' => 'JSVER',
+        ]);
+
+        $config = $this->configReader->readConfig(__DIR__ . '/Fixtures/.pre-build.yml');
+
+        $this->assertEquals($md5SumConfig, $config->getMd5SumConfig());
     }
 }
