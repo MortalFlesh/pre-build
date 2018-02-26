@@ -1,6 +1,6 @@
 <?php
 
-namespace MF\PreBuild\Tests;
+namespace MF\PreBuild\Tests\Service;
 
 use MF\PreBuild\Entity\Config;
 use MF\PreBuild\Entity\GitConfig;
@@ -25,7 +25,7 @@ class ConfigReaderTest extends TestCase
     {
         $emptyConfig = new Config(null, null);
 
-        $config = $this->configReader->readConfig(__DIR__ . '/Fixtures/.pre-build-empty.yml');
+        $config = $this->configReader->readConfig(__DIR__ . '/../Fixtures/.pre-build-empty.yml');
 
         $this->assertEquals($emptyConfig, $config);
     }
@@ -38,7 +38,7 @@ class ConfigReaderTest extends TestCase
             'branch' => 'GIT_BRANCH',
         ]);
 
-        $config = $this->configReader->readConfig(__DIR__ . '/Fixtures/.pre-build.yml');
+        $config = $this->configReader->readConfig(__DIR__ . '/../Fixtures/.pre-build.yml');
 
         $this->assertEquals($gitConfig, $config->getGitConfig());
     }
@@ -50,7 +50,7 @@ class ConfigReaderTest extends TestCase
             'tests/Fixtures/Md5/index.js' => 'JSVER',
         ]);
 
-        $config = $this->configReader->readConfig(__DIR__ . '/Fixtures/.pre-build.yml');
+        $config = $this->configReader->readConfig(__DIR__ . '/../Fixtures/.pre-build.yml');
 
         $this->assertEquals($md5SumConfig, $config->getMd5SumConfig());
     }

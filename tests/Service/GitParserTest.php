@@ -1,6 +1,6 @@
 <?php
 
-namespace MF\PreBuild\Tests;
+namespace MF\PreBuild\Tests\Service;
 
 use GitWrapper\GitWrapper;
 use MF\PreBuild\Entity\Config;

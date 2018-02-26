@@ -1,6 +1,6 @@
 <?php
 
-namespace MF\PreBuild\Tests;
+namespace MF\PreBuild\Tests\Service;
 
 use MF\PreBuild\Entity\Variables;
 use MF\PreBuild\Service\VariablesExporter;
