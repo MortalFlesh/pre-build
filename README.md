@@ -21,6 +21,7 @@ source <(php vendor/bin/pre-build-console pre-build:parse-variables)
 ```
 
 ### Example of config file
+- all keys are optional
 ```yaml
 pre-build:
     parse:
@@ -28,6 +29,8 @@ pre-build:
             commit: GIT_COMMIT
             url:    GIT_URL
             branch: GIT_BRANCH
+        md5sum:
+            path/to/file: FILE_SUM 
 ```
 
 ### Result:
@@ -35,6 +38,7 @@ pre-build:
 $ echo $GIT_COMMIT
 $ echo $GIT_URL
 $ echo $GIT_BRANCH
+$ echo $FILE_SUM
 ```
 
 
