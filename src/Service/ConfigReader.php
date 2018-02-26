@@ -24,8 +24,8 @@ class ConfigReader
         list('parse' => $parse) = $config;
 
         return new Config(
-            $this->parseGitConfig($parse),
-            $this->parseMd5Config($parse)
+            $parse['git'] ? $this->parseGitConfig($parse) : null,
+            $parse['md5sum'] ? $this->parseMd5Config($parse) : null
         );
     }
 

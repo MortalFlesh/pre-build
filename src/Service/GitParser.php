@@ -24,8 +24,13 @@ class GitParser
     public function parseGitValues(Config $config): Variables
     {
         $variables = new Variables();
+        $gitConfig = $config->getGitConfig();
 
-        foreach ($config->getGitConfig()->getValues() as $gitKey => $envName) {
+        if (!$gitConfig) {
+            return $variables;
+        }
+
+        foreach ($gitConfig->getValues() as $gitKey => $envName) {
             $variables->set($envName, $this->parseFromGit($gitKey));
         }
 

@@ -2,6 +2,7 @@
 
 namespace MF\PreBuild\Tests;
 
+use MF\PreBuild\Entity\Config;
 use MF\PreBuild\Entity\GitConfig;
 use MF\PreBuild\Entity\Md5SumConfig;
 use MF\PreBuild\Service\ConfigReader;
@@ -18,6 +19,15 @@ class ConfigReaderTest extends TestCase
     public function setUp()
     {
         $this->configReader = new ConfigReader(new Yaml());
+    }
+
+    public function testShouldReadEmptyConfig()
+    {
+        $emptyConfig = new Config(null, null);
+
+        $config = $this->configReader->readConfig(__DIR__ . '/Fixtures/.pre-build-empty.yml');
+
+        $this->assertEquals($emptyConfig, $config);
     }
 
     public function testShouldReadGitConfig()
