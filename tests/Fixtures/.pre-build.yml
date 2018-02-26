@@ -4,3 +4,6 @@ pre-build:
             commit: GIT_COMMIT
             url:    GIT_URL
             branch: GIT_BRANCH
+        md5sum:
+            www/static/css/vysokeskoly.min.css: CSSVER
+            www/static/js/vysokeskoly.min.js: JSVER
