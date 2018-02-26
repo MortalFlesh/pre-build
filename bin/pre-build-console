@@ -11,6 +11,7 @@ use MF\PreBuild\Service\ConfigReader;
 use MF\PreBuild\Facade\ParseVariablesFacade;
 use MF\PreBuild\Git\GitCommandFactory;
 use MF\PreBuild\Service\GitParser;
+use MF\PreBuild\Service\Md5Sum;
 use MF\PreBuild\Service\VariablesExporter;
 use Symfony\Component\Console\Application;
 use Symfony\Component\Yaml\Yaml;
@@ -44,6 +45,7 @@ $gitWrapper = new GitWrapper();
 $gitCommandFactory = new GitCommandFactory();
 $gitParser = new GitParser($gitWrapper, $gitCommandFactory);
 $variablesExporter = new VariablesExporter();
+$md5sum = new Md5Sum();
 
 // Subscribers
 
@@ -52,7 +54,7 @@ $commands = new ListCollection(AbstractCommand::class);
 $commands->add(
     new ParseVariablesCommand(
         $composer,
-        new ParseVariablesFacade($configReader, $gitParser, $variablesExporter)
+        new ParseVariablesFacade($configReader, $gitParser, $variablesExporter, $md5sum)
     )
 );
 

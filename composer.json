@@ -47,6 +47,9 @@
         "symfony-tests-dir": "tests"
     },
     "scripts": {
+        "post-install-cmd": [
+            "@installTools"
+        ],
         "test": [
             "@installTools",
             "@cs",

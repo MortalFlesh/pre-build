@@ -4,3 +4,6 @@ pre-build:
             commit: GIT_COMMIT
             url:    GIT_URL
             branch: GIT_BRANCH
+        md5sum:
+            tests/Fixtures/Md5/style.css: CSSVER
+            tests/Fixtures/Md5/index.js: JSVER

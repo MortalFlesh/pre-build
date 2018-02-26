@@ -5,6 +5,7 @@ namespace MF\PreBuild\Service;
 use Assert\Assertion;
 use MF\PreBuild\Entity\Config;
 use MF\PreBuild\Entity\GitConfig;
+use MF\PreBuild\Entity\Md5SumConfig;
 use Symfony\Component\Yaml\Yaml;
 
 class ConfigReader
@@ -22,9 +23,10 @@ class ConfigReader
         $config = $this->parseConfig($configPath);
         list('parse' => $parse) = $config;
 
-        $gitConfig = $this->parseGitConfig($parse);
-
-        return new Config($gitConfig);
+        return new Config(
+            $parse['git'] ? $this->parseGitConfig($parse) : null,
+            $parse['md5sum'] ? $this->parseMd5Config($parse) : null
+        );
     }
 
     private function parseConfig(string $configPath): array
@@ -37,5 +39,10 @@ class ConfigReader
     private function parseGitConfig(array $parse): GitConfig
     {
         return new GitConfig($parse['git']);
+    }
+
+    private function parseMd5Config(array $parse): Md5SumConfig
+    {
+        return new Md5SumConfig($parse['md5sum']);
     }
 }
