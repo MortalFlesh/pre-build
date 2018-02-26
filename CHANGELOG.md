@@ -3,6 +3,8 @@
 <!-- There should always be "Unreleased" section at the beginning. -->
 
 ## Unreleased
+
+## 1.1.0 - 2018-02-26
 - Added support for parsing md5 sum
 
 ## 1.0.1 - 2018-01-23
