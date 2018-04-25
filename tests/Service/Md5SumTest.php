@@ -1,11 +1,10 @@
 <?php declare(strict_types=1);
 
-namespace MF\PreBuild\Tests\Service;
+namespace MF\PreBuild\Service;
 
+use MF\PreBuild\AbstractTestCase;
 use MF\PreBuild\Entity\Config;
 use MF\PreBuild\Entity\Md5SumConfig;
-use MF\PreBuild\Service\Md5Sum;
-use MF\PreBuild\Tests\AbstractTestCase;
 
 /**
  * @group unit
@@ -15,12 +14,12 @@ class Md5SumTest extends AbstractTestCase
     /** @var Md5Sum */
     private $md5sum;
 
-    public function setUp()
+    public function setUp(): void
     {
         $this->md5sum = new Md5Sum();
     }
 
-    public function testShouldFindMd5SumOfGivenFiles()
+    public function testShouldFindMd5SumOfGivenFiles(): void
     {
         $config = new Config(
             null,

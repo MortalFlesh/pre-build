@@ -1,11 +1,10 @@
-<?php
+<?php declare(strict_types=1);
 
-namespace MF\PreBuild\Tests\Service;
+namespace MF\PreBuild\Service;
 
 use MF\PreBuild\Entity\Config;
 use MF\PreBuild\Entity\GitConfig;
 use MF\PreBuild\Entity\Md5SumConfig;
-use MF\PreBuild\Service\ConfigReader;
 use PHPUnit\Framework\TestCase;
 use Symfony\Component\Yaml\Yaml;
 
@@ -16,12 +15,12 @@ class ConfigReaderTest extends TestCase
 {
     private $configReader;
 
-    public function setUp()
+    public function setUp(): void
     {
         $this->configReader = new ConfigReader(new Yaml());
     }
 
-    public function testShouldReadEmptyConfig()
+    public function testShouldReadEmptyConfig(): void
     {
         $emptyConfig = new Config(null, null);
 
@@ -30,7 +29,7 @@ class ConfigReaderTest extends TestCase
         $this->assertEquals($emptyConfig, $config);
     }
 
-    public function testShouldReadGitConfig()
+    public function testShouldReadGitConfig(): void
     {
         $gitConfig = new GitConfig([
             'commit' => 'GIT_COMMIT',
@@ -43,7 +42,7 @@ class ConfigReaderTest extends TestCase
         $this->assertEquals($gitConfig, $config->getGitConfig());
     }
 
-    public function testShouldReadMd5SumConfig()
+    public function testShouldReadMd5SumConfig(): void
     {
         $md5SumConfig = new Md5SumConfig([
             'tests/Fixtures/Md5/style.css' => 'CSSVER',

@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 
 namespace MF\PreBuild\Command;
 
@@ -34,9 +34,9 @@ abstract class AbstractCommand extends Command
         }
     }
 
-    protected function title()
+    protected function title(): void
     {
-        list('version' => $version) = $this->composer;
+        ['version' => $version] = $this->composer;
 
         $this->io->title(
             sprintf(

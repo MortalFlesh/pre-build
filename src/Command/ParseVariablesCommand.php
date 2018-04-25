@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 
 namespace MF\PreBuild\Command;
 
@@ -20,7 +20,7 @@ class ParseVariablesCommand extends AbstractCommand
         $this->parseVariablesFacade = $parseVariablesFacade;
     }
 
-    protected function configure()
+    protected function configure(): void
     {
         $this
             ->setName('parse-variables')
@@ -59,7 +59,7 @@ class ParseVariablesCommand extends AbstractCommand
             }
 
             return 0;
-        } catch (\Exception $e) {
+        } catch (\Throwable $e) {
             $this->io->error($e->getMessage());
 
             return 1;

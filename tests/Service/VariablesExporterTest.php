@@ -1,9 +1,8 @@
-<?php
+<?php declare(strict_types=1);
 
-namespace MF\PreBuild\Tests\Service;
+namespace MF\PreBuild\Service;
 
 use MF\PreBuild\Entity\Variables;
-use MF\PreBuild\Service\VariablesExporter;
 use PHPUnit\Framework\TestCase;
 
 /**
@@ -14,12 +13,12 @@ class VariablesExporterTest extends TestCase
     /** @var VariablesExporter */
     private $variablesExporter;
 
-    public function setUp()
+    public function setUp(): void
     {
         $this->variablesExporter = new VariablesExporter();
     }
 
-    public function testShouldExportFlattenVariables()
+    public function testShouldExportFlattenVariables(): void
     {
         $first = new Variables();
         $first->set('first', 'f_value');

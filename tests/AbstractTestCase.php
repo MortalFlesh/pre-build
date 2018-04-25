@@ -1,14 +1,11 @@
-<?php
+<?php declare(strict_types=1);
 
-namespace MF\PreBuild\Tests;
+namespace MF\PreBuild;
 
-use Mockery as m;
+use Mockery\Adapter\Phpunit\MockeryPHPUnitIntegration;
 use PHPUnit\Framework\TestCase;
 
 abstract class AbstractTestCase extends TestCase
 {
-    public function tearDown()
-    {
-        m::close();
-    }
+    use MockeryPHPUnitIntegration;
 }

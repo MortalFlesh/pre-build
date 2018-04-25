@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 
 namespace MF\PreBuild\Service;
 
@@ -21,7 +21,7 @@ class ConfigReader
     public function readConfig(string $configPath): Config
     {
         $config = $this->parseConfig($configPath);
-        list('parse' => $parse) = $config;
+        ['parse' => $parse] = $config;
 
         return new Config(
             $parse['git'] ? $this->parseGitConfig($parse) : null,

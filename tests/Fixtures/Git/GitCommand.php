@@ -1,6 +1,6 @@
-<?php
+<?php declare(strict_types=1);
 
-namespace MF\PreBuild\Tests\Fixtures\Git;
+namespace MF\PreBuild\Fixtures\Git;
 
 use GitWrapper\GitWrapper;
 use MF\PreBuild\Git\GitCommandInterface;
