@@ -5,6 +5,7 @@ namespace MF\PreBuild\Service;
 use MF\PreBuild\Entity\Config;
 use MF\PreBuild\Entity\GitConfig;
 use MF\PreBuild\Entity\Md5SumConfig;
+use MF\PreBuild\Entity\Md5SumReplaceConfig;
 use PHPUnit\Framework\TestCase;
 
 /**
@@ -22,7 +23,7 @@ class ConfigReaderTest extends TestCase
 
     public function testShouldReadEmptyConfig(): void
     {
-        $emptyConfig = new Config(null, null);
+        $emptyConfig = new Config();
 
         $config = $this->configReader->readConfig(__DIR__ . '/../Fixtures/.pre-build-empty.yml');
 
@@ -52,5 +53,18 @@ class ConfigReaderTest extends TestCase
         $config = $this->configReader->readConfig(__DIR__ . '/../Fixtures/.pre-build.yml');
 
         $this->assertEquals($md5SumConfig, $config->getMd5SumConfig());
+    }
+
+    public function testShouldReadMd5SumReplaceConfig(): void
+    {
+        $file = 'tests/Fixtures/Replace/parameters.yml';
+        $md5SumReplaceConfig = new Md5SumReplaceConfig([
+            'tests/Fixtures/Md5/style.css' => [$file, '___CSSVER___'],
+            'tests/Fixtures/Md5/index.js' => [$file, '___JSVER___'],
+        ]);
+
+        $config = $this->configReader->readConfig(__DIR__ . '/../Fixtures/.pre-build.yml');
+
+        $this->assertEquals($md5SumReplaceConfig, $config->getMd5SumReplaceConfig());
     }
 }

@@ -7,7 +7,9 @@ use GitWrapper\GitWrapper;
 use MF\Collection\Mutable\Generic\ListCollection;
 use MF\PreBuild\Command\AbstractCommand;
 use MF\PreBuild\Command\ParseVariablesCommand;
+use MF\PreBuild\Command\ReplacePlaceholderCommand;
 use MF\PreBuild\Facade\ParseVariablesFacade;
+use MF\PreBuild\Facade\ReplacePlaceholderFacade;
 use MF\PreBuild\Git\GitCommandFactory;
 use MF\PreBuild\Service\ConfigReader;
 use MF\PreBuild\Service\GitParser;
@@ -56,6 +58,7 @@ $commands->add(
         new ParseVariablesFacade($configReader, $gitParser, $variablesExporter, $md5sum)
     )
 );
+$commands->add(new ReplacePlaceholderCommand($composer, new ReplacePlaceholderFacade($configReader, $md5sum)));
 
 // Prepare services
 

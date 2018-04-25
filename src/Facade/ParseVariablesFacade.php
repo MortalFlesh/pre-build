@@ -40,7 +40,7 @@ class ParseVariablesFacade
 
         return $this->variablesExporter
             ->addSource($this->gitParser->parseGitValues($config))
-            ->addSource($this->md5Sum->findMd5Sum($config))
+            ->addSource($this->md5Sum->findMd5SumToVariables($config))
             ->export();
     }
 }
