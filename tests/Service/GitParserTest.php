@@ -1,14 +1,12 @@
-<?php
+<?php declare(strict_types=1);
 
-namespace MF\PreBuild\Tests\Service;
+namespace MF\PreBuild\Service;
 
 use GitWrapper\GitWrapper;
 use MF\PreBuild\Entity\Config;
 use MF\PreBuild\Entity\GitConfig;
-use MF\PreBuild\Entity\Md5SumConfig;
+use MF\PreBuild\Fixtures\Git\GitCommand;
 use MF\PreBuild\Git\GitCommandFactory;
-use MF\PreBuild\Service\GitParser;
-use MF\PreBuild\Tests\Fixtures\Git\GitCommand;
 use Mockery as m;
 use PHPUnit\Framework\TestCase;
 
@@ -23,7 +21,7 @@ class GitParserTest extends TestCase
     /** @var GitCommandFactory|m\MockInterface */
     private $gitCommandFactory;
 
-    public function setUp()
+    public function setUp(): void
     {
         $this->gitCommandFactory = m::mock(GitCommandFactory::class);
 
@@ -33,7 +31,7 @@ class GitParserTest extends TestCase
         );
     }
 
-    public function testShouldParseGitValuesByConfig()
+    public function testShouldParseGitValuesByConfig(): void
     {
         $config = new Config(
             new GitConfig([

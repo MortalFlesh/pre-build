@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 
 namespace MF\PreBuild\Git;
 
@@ -23,12 +23,10 @@ class GitCommandFactory
         switch ($gitKey) {
             case self::GIT_COMMIT:
                 return new GitCommit();
-
             case self::GIT_BRANCH:
                 return new GitBranch();
-
             case self::GIT_URL:
                 return new GitUrl();
-        };
+        }
     }
 }
