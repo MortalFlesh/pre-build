@@ -6,8 +6,8 @@ use Assert\Assertion;
 use MF\PreBuild\Entity\Config;
 use MF\PreBuild\Entity\GitConfig;
 use MF\PreBuild\Entity\Md5SumConfig;
-use function safe\file_get_contents;
 use MF\PreBuild\Entity\Md5SumReplaceConfig;
+use function safe\file_get_contents;
 use Symfony\Component\Yaml\Yaml;
 
 class ConfigReader
