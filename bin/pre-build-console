@@ -7,14 +7,13 @@ use GitWrapper\GitWrapper;
 use MF\Collection\Mutable\Generic\ListCollection;
 use MF\PreBuild\Command\AbstractCommand;
 use MF\PreBuild\Command\ParseVariablesCommand;
-use MF\PreBuild\Service\ConfigReader;
 use MF\PreBuild\Facade\ParseVariablesFacade;
 use MF\PreBuild\Git\GitCommandFactory;
+use MF\PreBuild\Service\ConfigReader;
 use MF\PreBuild\Service\GitParser;
 use MF\PreBuild\Service\Md5Sum;
 use MF\PreBuild\Service\VariablesExporter;
 use Symfony\Component\Console\Application;
-use Symfony\Component\Yaml\Yaml;
 
 function requireIfExists(string $file)
 {
