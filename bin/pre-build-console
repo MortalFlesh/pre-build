@@ -40,7 +40,7 @@ $composer = json_decode(file_get_contents(__DIR__ . '/../composer.json'), true);
 
 // services definition
 
-$configReader = new ConfigReader(new Yaml());
+$configReader = new ConfigReader();
 $gitWrapper = new GitWrapper();
 $gitCommandFactory = new GitCommandFactory();
 $gitParser = new GitParser($gitWrapper, $gitCommandFactory);

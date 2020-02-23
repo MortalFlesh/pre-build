@@ -6,18 +6,11 @@ use Assert\Assertion;
 use MF\PreBuild\Entity\Config;
 use MF\PreBuild\Entity\GitConfig;
 use MF\PreBuild\Entity\Md5SumConfig;
+use function safe\file_get_contents;
 use Symfony\Component\Yaml\Yaml;
 
 class ConfigReader
 {
-    /** @var Yaml */
-    private $yaml;
-
-    public function __construct(Yaml $yaml)
-    {
-        $this->yaml = $yaml;
-    }
-
     public function readConfig(string $configPath): Config
     {
         $config = $this->parseConfig($configPath);
@@ -33,7 +26,11 @@ class ConfigReader
     {
         Assertion::file($configPath, 'Config file must be readable.');
 
-        return $this->yaml->parse(file_get_contents($configPath))['pre-build'];
+        $config = Yaml::parse(file_get_contents($configPath));
+
+        Assertion::isArray($config);
+
+        return $config['pre-build'];
     }
 
     private function parseGitConfig(array $parse): GitConfig

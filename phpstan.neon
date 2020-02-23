@@ -1,4 +1,4 @@
 parameters:
-    reportUnmatchedIgnoredErrors: false
+    checkMissingIterableValueType: false
     ignoreErrors:
-        - '#.*?Mockery.*?#'
+        - '#Cannot call method (add|reduce){1}\(\) on .*?MF\\Collection\\Mutable\\Generic\\ListCollection#'

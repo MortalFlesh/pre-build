@@ -6,18 +6,18 @@ use MF\PreBuild\Entity\Config;
 use MF\PreBuild\Entity\GitConfig;
 use MF\PreBuild\Entity\Md5SumConfig;
 use PHPUnit\Framework\TestCase;
-use Symfony\Component\Yaml\Yaml;
 
 /**
  * @group unit
  */
 class ConfigReaderTest extends TestCase
 {
+    /** @var ConfigReader */
     private $configReader;
 
-    public function setUp(): void
+    protected function setUp(): void
     {
-        $this->configReader = new ConfigReader(new Yaml());
+        $this->configReader = new ConfigReader();
     }
 
     public function testShouldReadEmptyConfig(): void

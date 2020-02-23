@@ -3,6 +3,8 @@
 <!-- There should always be "Unreleased" section at the beginning. -->
 
 ## Unreleased
+- Update dependencies
+- Allow Symfony 5
 
 ## 1.1.0 - 2018-02-26
 - Added support for parsing md5 sum
