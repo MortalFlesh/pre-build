@@ -3,6 +3,8 @@
 <!-- There should always be "Unreleased" section at the beginning. -->
 
 ## Unreleased
+
+## 2.0.0 - 2020-02-24
 - Update dependencies
 - Allow Symfony 5
 
