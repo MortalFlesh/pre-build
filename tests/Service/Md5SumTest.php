@@ -14,7 +14,7 @@ class Md5SumTest extends AbstractTestCase
     /** @var Md5Sum */
     private $md5sum;
 
-    public function setUp(): void
+    protected function setUp(): void
     {
         $this->md5sum = new Md5Sum();
     }

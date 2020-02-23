@@ -21,7 +21,7 @@ class GitParserTest extends TestCase
     /** @var GitCommandFactory|m\MockInterface */
     private $gitCommandFactory;
 
-    public function setUp(): void
+    protected function setUp(): void
     {
         $this->gitCommandFactory = m::mock(GitCommandFactory::class);
 

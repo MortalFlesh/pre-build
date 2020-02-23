@@ -28,5 +28,7 @@ class GitCommandFactory
             case self::GIT_URL:
                 return new GitUrl();
         }
+
+        throw new \Exception(sprintf('Git command %s is not implemented yet.', __METHOD__));
     }
 }

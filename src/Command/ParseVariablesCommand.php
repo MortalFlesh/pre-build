@@ -33,10 +33,12 @@ class ParseVariablesCommand extends AbstractCommand
     {
         try {
             $configPath = $input->getOption('config');
-            $output = $input->getOption('output');
+            Assertion::string($configPath);
+            $outputPath = $input->getOption('output');
+            Assertion::string($outputPath);
 
-            Assertion::inArray($output, ['std', 'visual']);
-            $isStdOutput = $output === 'std';
+            Assertion::inArray($outputPath, ['std', 'visual']);
+            $isStdOutput = $outputPath === 'std';
 
             $variables = $this->parseVariablesFacade->parseVariables($configPath);
 

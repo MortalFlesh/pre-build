@@ -13,7 +13,7 @@ class VariablesExporterTest extends TestCase
     /** @var VariablesExporter */
     private $variablesExporter;
 
-    public function setUp(): void
+    protected function setUp(): void
     {
         $this->variablesExporter = new VariablesExporter();
     }

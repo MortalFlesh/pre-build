@@ -29,8 +29,8 @@ abstract class AbstractCommand extends Command
         $this->io = new SymfonyStyle($input, $output);
 
         if (!$this->io->isVerbose()) {
-            ini_set('display_errors', 0);
-            ini_set('error_reporting', 0);
+            ini_set('display_errors', '0');
+            ini_set('error_reporting', '0');
         }
     }
 
