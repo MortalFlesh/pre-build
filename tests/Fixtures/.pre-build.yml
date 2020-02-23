@@ -7,3 +7,12 @@ pre-build:
         md5sum:
             tests/Fixtures/Md5/style.css: CSSVER
             tests/Fixtures/Md5/index.js: JSVER
+
+    replace:
+        md5sum:
+            tests/Fixtures/Md5/style.css:
+                - tests/Fixtures/Replace/parameters.yml
+                - ___CSSVER___
+            tests/Fixtures/Md5/index.js:
+                - tests/Fixtures/Replace/parameters.yml
+                - ___JSVER___

@@ -1,0 +1,5 @@
+parameters:
+    foo: bar
+
+    front.css.version: ___CSSVER___
+    front.js.version: ___JSVER___
