@@ -3,7 +3,7 @@
     "description": "Pre build commands for exporting variables for building a package",
     "type": "project",
     "license": "MIT",
-    "version": "3.0.0",
+    "version": "4.0.0",
     "authors": [
         {
             "name": "Petr Chromec",
