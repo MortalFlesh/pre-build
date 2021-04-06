@@ -21,25 +21,24 @@
         }
     },
     "require": {
-        "php": ">=7.3",
+        "php": "^7.4",
         "beberlei/assert": "^3.2",
         "cpliakas/git-wrapper": "^3.0",
-        "mf/collections-php": "^4.0",
-        "symfony/console": "^4.0 || ^5.0",
-        "symfony/yaml": "^4.0 || ^5.0",
+        "mf/collections-php": "^5.0",
+        "symfony/console": "^5.0",
+        "symfony/yaml": "^5.0",
         "thecodingmachine/safe": "^1.0"
     },
     "require-dev": {
-        "lmc/coding-standard": "^1.0",
-        "mockery/mockery": "^1.0",
-        "php-coveralls/php-coveralls": "^2.2",
+        "lmc/coding-standard": "^3.0",
+        "mockery/mockery": "^1.4",
         "phpstan/extension-installer": "^1.0",
         "phpstan/phpstan": "^0.12.11",
         "phpstan/phpstan-beberlei-assert": "^0.12.2",
         "phpstan/phpstan-mockery": "^0.12.3",
         "phpstan/phpstan-phpunit": "^0.12.6",
-        "phpunit/phpunit": "^7.0",
-        "symfony/var-dumper": "^4.0 || ^5.0"
+        "phpunit/phpunit": "^9.5",
+        "symfony/var-dumper": "^5.0"
     },
     "bin": [
         "bin/pre-build-console"
@@ -55,11 +54,15 @@
     "scripts": {
         "post-install-cmd": [],
         "all": [
+            "@analyze",
+            "@phpunit"
+        ],
+        "analyze": [
             "@cs",
-            "@phpunit",
             "@phpstan"
         ],
         "phpunit": "bin/phpunit -c phpunit.xml.dist",
+        "tests-ci": "php -dxdebug.coverage_enable=1 bin/phpunit -c phpunit.xml.dist",
         "phpstan": "bin/phpstan analyse -l 7 -c phpstan.neon src tests",
         "fix": [
             "bin/ecs check --ansi --clear-cache --fix -- src/ tests/"

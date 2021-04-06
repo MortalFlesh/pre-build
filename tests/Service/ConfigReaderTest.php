@@ -12,8 +12,7 @@ use PHPUnit\Framework\TestCase;
  */
 class ConfigReaderTest extends TestCase
 {
-    /** @var ConfigReader */
-    private $configReader;
+    private ConfigReader $configReader;
 
     protected function setUp(): void
     {

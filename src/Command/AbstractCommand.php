@@ -9,13 +9,10 @@ use Symfony\Component\Console\Style\SymfonyStyle;
 
 abstract class AbstractCommand extends Command
 {
-    const COMMAND_PREFIX = 'pre-build:';
+    public const COMMAND_PREFIX = 'pre-build:';
 
-    /** @var array */
-    private $composer;
-
-    /** @var SymfonyStyle */
-    protected $io;
+    private array $composer;
+    protected SymfonyStyle $io;
 
     public function __construct(array $composer)
     {
@@ -47,7 +44,7 @@ abstract class AbstractCommand extends Command
         $this->io->section($this->getName());
     }
 
-    public function setName($name)
+    public function setName(string $name): self
     {
         return parent::setName(self::COMMAND_PREFIX . $name);
     }

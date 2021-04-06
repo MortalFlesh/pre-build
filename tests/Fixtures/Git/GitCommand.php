@@ -7,8 +7,7 @@ use MF\PreBuild\Git\GitCommandInterface;
 
 class GitCommand implements GitCommandInterface
 {
-    /** @var string */
-    private $value;
+    private string $value;
 
     public function __construct(string $value)
     {

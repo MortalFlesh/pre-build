@@ -11,8 +11,7 @@ use MF\PreBuild\Entity\Md5SumConfig;
  */
 class Md5SumTest extends AbstractTestCase
 {
-    /** @var Md5Sum */
-    private $md5sum;
+    private Md5Sum $md5sum;
 
     protected function setUp(): void
     {

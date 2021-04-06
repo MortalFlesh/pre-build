@@ -14,11 +14,11 @@ class ConfigReader
     public function readConfig(string $configPath): Config
     {
         $config = $this->parseConfig($configPath);
-        ['parse' => $parse] = $config;
+        $parse = $config['parse'] ?? [];
 
         return new Config(
-            $parse['git'] ? $this->parseGitConfig($parse) : null,
-            $parse['md5sum'] ? $this->parseMd5Config($parse) : null
+            array_key_exists('git', $parse) ? $this->parseGitConfig($parse) : null,
+            array_key_exists('md5sum', $parse) ? $this->parseMd5Config($parse) : null
         );
     }
 

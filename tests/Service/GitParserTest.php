@@ -15,11 +15,9 @@ use PHPUnit\Framework\TestCase;
  */
 class GitParserTest extends TestCase
 {
-    /** @var GitParser */
-    private $gitParser;
-
+    private GitParser $gitParser;
     /** @var GitCommandFactory|m\MockInterface */
-    private $gitCommandFactory;
+    private GitCommandFactory $gitCommandFactory;
 
     protected function setUp(): void
     {
