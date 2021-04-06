@@ -9,13 +9,10 @@ use MF\PreBuild\Git\GitCommandFactory;
 
 class GitParser
 {
-    private GitWrapper $gitWrapper;
-    private GitCommandFactory $gitCommandFactory;
-
-    public function __construct(GitWrapper $gitWrapper, GitCommandFactory $gitCommandFactory)
-    {
-        $this->gitWrapper = $gitWrapper;
-        $this->gitCommandFactory = $gitCommandFactory;
+    public function __construct(
+        private GitWrapper $gitWrapper,
+        private GitCommandFactory $gitCommandFactory
+    ) {
     }
 
     public function parseGitValues(Config $config): Variables

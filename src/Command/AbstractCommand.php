@@ -11,14 +11,11 @@ abstract class AbstractCommand extends Command
 {
     public const COMMAND_PREFIX = 'pre-build:';
 
-    private array $composer;
     protected SymfonyStyle $io;
 
-    public function __construct(array $composer)
+    public function __construct(private array $composer)
     {
         parent::__construct();
-
-        $this->composer = $composer;
     }
 
     protected function initialize(InputInterface $input, OutputInterface $output): void

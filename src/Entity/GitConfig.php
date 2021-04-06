@@ -4,11 +4,8 @@ namespace MF\PreBuild\Entity;
 
 class GitConfig
 {
-    private array $values;
-
-    public function __construct(array $values)
+    public function __construct(private array $values)
     {
-        $this->values = $values;
     }
 
     public function getValues(): iterable

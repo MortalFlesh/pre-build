@@ -10,13 +10,9 @@ use Symfony\Component\Console\Output\OutputInterface;
 
 class ParseVariablesCommand extends AbstractCommand
 {
-    private ParseVariablesFacade $parseVariablesFacade;
-
-    public function __construct(array $composer, ParseVariablesFacade $parseVariablesFacade)
+    public function __construct(array $composer, private ParseVariablesFacade $parseVariablesFacade)
     {
         parent::__construct($composer);
-
-        $this->parseVariablesFacade = $parseVariablesFacade;
     }
 
     protected function configure(): void
@@ -28,7 +24,7 @@ class ParseVariablesCommand extends AbstractCommand
             ->addOption('output', 'o', InputOption::VALUE_OPTIONAL, 'Output format [std, visual]', 'std');
     }
 
-    protected function execute(InputInterface $input, OutputInterface $output)
+    protected function execute(InputInterface $input, OutputInterface $output): int
     {
         try {
             $configPath = $input->getOption('config');
