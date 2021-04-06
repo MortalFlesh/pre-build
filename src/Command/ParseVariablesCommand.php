@@ -10,8 +10,7 @@ use Symfony\Component\Console\Output\OutputInterface;
 
 class ParseVariablesCommand extends AbstractCommand
 {
-    /** @var ParseVariablesFacade */
-    private $parseVariablesFacade;
+    private ParseVariablesFacade $parseVariablesFacade;
 
     public function __construct(array $composer, ParseVariablesFacade $parseVariablesFacade)
     {
@@ -52,7 +51,7 @@ class ParseVariablesCommand extends AbstractCommand
                 $this->io->table(
                     ['key', 'value'],
                     $variables
-                        ->map('($k, $v) => [$k, $v]', 'array')
+                        ->map(fn ($k, $v) => [$k, $v], 'array')
                         ->values()
                         ->toArray()
                 );

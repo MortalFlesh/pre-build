@@ -4,11 +4,8 @@ namespace MF\PreBuild\Entity;
 
 class Config
 {
-    /** @var GitConfig|null */
-    private $gitConfig;
-
-    /** @var Md5SumConfig|null */
-    private $md5SumConfig;
+    private ?GitConfig $gitConfig;
+    private ?Md5SumConfig $md5SumConfig;
 
     public function __construct(?GitConfig $gitConfig, ?Md5SumConfig $md5SumConfig)
     {

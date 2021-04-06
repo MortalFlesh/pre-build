@@ -10,8 +10,7 @@ use PHPUnit\Framework\TestCase;
  */
 class VariablesExporterTest extends TestCase
 {
-    /** @var VariablesExporter */
-    private $variablesExporter;
+    private VariablesExporter $variablesExporter;
 
     protected function setUp(): void
     {

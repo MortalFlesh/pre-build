@@ -8,7 +8,7 @@ use MF\PreBuild\Entity\Variables;
 class VariablesExporter
 {
     /** @var Variables[]|ListCollection<Variables> */
-    private $variables;
+    private ListCollection $variables;
 
     public function __construct()
     {

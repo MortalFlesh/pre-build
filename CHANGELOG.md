@@ -3,6 +3,8 @@
 <!-- There should always be "Unreleased" section at the beginning. -->
 
 ## Unreleased
+- [**BC**] Require php 7.4 and update dependencies
+- [**BC**] Drop Symfony 4 support
 
 ## 2.0.1 - 2020-02-24
 - Fix version in composer json file

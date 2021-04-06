@@ -9,11 +9,8 @@ use MF\PreBuild\Git\GitCommandFactory;
 
 class GitParser
 {
-    /** @var GitWrapper */
-    private $gitWrapper;
-
-    /** @var GitCommandFactory */
-    private $gitCommandFactory;
+    private GitWrapper $gitWrapper;
+    private GitCommandFactory $gitCommandFactory;
 
     public function __construct(GitWrapper $gitWrapper, GitCommandFactory $gitCommandFactory)
     {

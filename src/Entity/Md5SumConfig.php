@@ -4,8 +4,7 @@ namespace MF\PreBuild\Entity;
 
 class Md5SumConfig
 {
-    /** @var array */
-    private $values;
+    private array $values;
 
     public function __construct(array $values)
     {
