@@ -3,6 +3,8 @@
 <!-- There should always be "Unreleased" section at the beginning. -->
 
 ## Unreleased
+
+## 3.0.0 - 2020-04-06
 - [**BC**] Require php 7.4 and update dependencies
 - [**BC**] Drop Symfony 4 support
 
