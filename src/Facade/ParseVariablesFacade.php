@@ -10,21 +10,12 @@ use MF\PreBuild\Service\VariablesExporter;
 
 class ParseVariablesFacade
 {
-    private ConfigReader $configReader;
-    private GitParser $gitParser;
-    private VariablesExporter $variablesExporter;
-    private Md5Sum $md5Sum;
-
     public function __construct(
-        ConfigReader $configReader,
-        GitParser $gitParser,
-        VariablesExporter $variablesExporter,
-        Md5Sum $md5Sum
+        private ConfigReader $configReader,
+        private GitParser $gitParser,
+        private VariablesExporter $variablesExporter,
+        private Md5Sum $md5Sum
     ) {
-        $this->configReader = $configReader;
-        $this->gitParser = $gitParser;
-        $this->variablesExporter = $variablesExporter;
-        $this->md5Sum = $md5Sum;
     }
 
     public function parseVariables(string $configPath): Variables

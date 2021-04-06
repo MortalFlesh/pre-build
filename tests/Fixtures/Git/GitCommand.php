@@ -7,11 +7,8 @@ use MF\PreBuild\Git\GitCommandInterface;
 
 class GitCommand implements GitCommandInterface
 {
-    private string $value;
-
-    public function __construct(string $value)
+    public function __construct(private string $value)
     {
-        $this->value = $value;
     }
 
     public function execute(GitWrapper $git): string

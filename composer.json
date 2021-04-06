@@ -21,10 +21,10 @@
         }
     },
     "require": {
-        "php": "^7.4",
+        "php": "^8.0",
         "beberlei/assert": "^3.2",
         "cpliakas/git-wrapper": "^3.0",
-        "mf/collections-php": "^5.0",
+        "mf/collections-php": "^6.0",
         "symfony/console": "^5.0",
         "symfony/yaml": "^5.0",
         "thecodingmachine/safe": "^1.0"
