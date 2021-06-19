@@ -3,12 +3,14 @@
 <!-- There should always be "Unreleased" section at the beginning. -->
 
 ## Unreleased
+
+## 4.1.0 - 2021-06-19
 - Add `tag` option for `git`
 
-## 4.0.0 - 2020-04-06
+## 4.0.0 - 2021-04-06
 - [**BC**] Require php 8.0 and update dependencies
 
-## 3.0.0 - 2020-04-06
+## 3.0.0 - 2021-04-06
 - [**BC**] Require php 7.4 and update dependencies
 - [**BC**] Drop Symfony 4 support
 
