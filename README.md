@@ -29,6 +29,7 @@ pre-build:
             commit: GIT_COMMIT
             url:    GIT_URL
             branch: GIT_BRANCH
+            tag:    GIT_TAG
         md5sum:
             path/to/file: FILE_SUM 
 ```
@@ -38,6 +39,7 @@ pre-build:
 $ echo $GIT_COMMIT
 $ echo $GIT_URL
 $ echo $GIT_BRANCH
+$ echo $GIT_TAG
 $ echo $FILE_SUM
 ```
 
