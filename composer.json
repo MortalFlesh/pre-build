@@ -30,7 +30,7 @@
         "thecodingmachine/safe": "^1.0"
     },
     "require-dev": {
-        "lmc/coding-standard": "^3.0",
+        "lmc/coding-standard": "^3.2",
         "mockery/mockery": "^1.4",
         "phpstan/extension-installer": "^1.0",
         "phpstan/phpstan": "^0.12.11",
