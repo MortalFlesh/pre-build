@@ -3,6 +3,7 @@
 <!-- There should always be "Unreleased" section at the beginning. -->
 
 ## Unreleased
+- Add `tag` option for `git`
 
 ## 4.0.0 - 2020-04-06
 - [**BC**] Require php 8.0 and update dependencies

@@ -6,5 +6,4 @@ bin/
 !/bin/pre-build-console
 
 .phpunit.result.cache
-/tools/**
-!/tools/*/composer.json
+/tools/**/vendor/

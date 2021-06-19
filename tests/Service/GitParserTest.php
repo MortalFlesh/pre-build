@@ -36,6 +36,7 @@ class GitParserTest extends TestCase
                 'commit' => 'GIT_COMMIT',
                 'branch' => 'GIT_BRANCH',
                 'url' => 'GIT_URL',
+                'tag' => 'GIT_TAG',
             ]),
             null
         );
@@ -43,14 +44,16 @@ class GitParserTest extends TestCase
             'GIT_COMMIT' => 'VALUE-commit',
             'GIT_BRANCH' => 'VALUE-branch',
             'GIT_URL' => 'VALUE-url',
+            'GIT_TAG' => 'VALUE-tag',
         ];
 
         $this->gitCommandFactory->shouldReceive('createGitCommand')
-            ->times(3)
+            ->times(4)
             ->andReturn(
                 new GitCommand('VALUE-commit'),
                 new GitCommand('VALUE-branch'),
-                new GitCommand('VALUE-url')
+                new GitCommand('VALUE-url'),
+                new GitCommand('VALUE-tag'),
             );
 
         $variables = $this->gitParser->parseGitValues($config);
