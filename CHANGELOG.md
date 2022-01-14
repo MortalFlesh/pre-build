@@ -3,6 +3,7 @@
 <!-- There should always be "Unreleased" section at the beginning. -->
 
 ## Unreleased
+- Allow php 8.1 and update dependencies
 
 ## 4.1.0 - 2021-06-19
 - Add `tag` option for `git`
