@@ -3,6 +3,8 @@
 <!-- There should always be "Unreleased" section at the beginning. -->
 
 ## Unreleased
+
+## 4.2.0 - 2022-01-14
 - Allow php 8.1 and update dependencies
 
 ## 4.1.0 - 2021-06-19
