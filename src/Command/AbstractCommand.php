@@ -38,10 +38,10 @@ abstract class AbstractCommand extends Command
                 $version
             )
         );
-        $this->io->section($this->getName());
+        $this->io->section((string) $this->getName());
     }
 
-    public function setName(string $name): self
+    public function setName(string $name): static
     {
         return parent::setName(self::COMMAND_PREFIX . $name);
     }
