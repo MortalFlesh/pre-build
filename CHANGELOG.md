@@ -3,6 +3,8 @@
 <!-- There should always be "Unreleased" section at the beginning. -->
 
 ## Unreleased
+
+## 5.0.0 - 2022-08-03
 - Require php 8.1
   - [BC] Use php 8.1 features and types
 - Remove dependency on git wrapper library and use a simple Process instead
