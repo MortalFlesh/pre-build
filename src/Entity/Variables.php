@@ -4,10 +4,7 @@ namespace MF\PreBuild\Entity;
 
 use MF\Collection\Mutable\Generic\Map;
 
+/** @phpstan-extends Map<string, string> */
 class Variables extends Map
 {
-    public function __construct()
-    {
-        parent::__construct('string', 'string');
-    }
 }

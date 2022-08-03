@@ -2,8 +2,8 @@
 
 namespace MF\PreBuild\Fixtures\Git;
 
-use GitWrapper\GitWrapper;
 use MF\PreBuild\Git\GitCommandInterface;
+use MF\PreBuild\Service\GitProcess;
 
 class GitCommand implements GitCommandInterface
 {
@@ -11,7 +11,7 @@ class GitCommand implements GitCommandInterface
     {
     }
 
-    public function execute(GitWrapper $git): string
+    public function execute(GitProcess $git): string
     {
         return $this->value;
     }

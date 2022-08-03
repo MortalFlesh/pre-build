@@ -2,7 +2,6 @@
 
 namespace MF\PreBuild\Service;
 
-use GitWrapper\GitWrapper;
 use MF\PreBuild\Entity\Config;
 use MF\PreBuild\Entity\Variables;
 use MF\PreBuild\Git\GitCommandFactory;
@@ -10,8 +9,8 @@ use MF\PreBuild\Git\GitCommandFactory;
 class GitParser
 {
     public function __construct(
-        private GitWrapper $gitWrapper,
-        private GitCommandFactory $gitCommandFactory
+        private GitProcess $gitProcess,
+        private GitCommandFactory $gitCommandFactory,
     ) {
     }
 
@@ -35,6 +34,6 @@ class GitParser
     {
         $gitCommand = $this->gitCommandFactory->createGitCommand($gitKey);
 
-        return $gitCommand->execute($this->gitWrapper);
+        return $gitCommand->execute($this->gitProcess);
     }
 }

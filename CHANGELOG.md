@@ -3,6 +3,9 @@
 <!-- There should always be "Unreleased" section at the beginning. -->
 
 ## Unreleased
+- Require php 8.1
+  - [BC] Use php 8.1 features and types
+- Remove dependency on git wrapper library and use a simple Process instead
 
 ## 4.2.0 - 2022-01-14
 - Allow php 8.1 and update dependencies

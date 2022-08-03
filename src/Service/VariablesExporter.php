@@ -7,12 +7,12 @@ use MF\PreBuild\Entity\Variables;
 
 class VariablesExporter
 {
-    /** @var Variables[]|ListCollection<Variables> */
+    /** @phpstan-var ListCollection<Variables> */
     private ListCollection $variables;
 
     public function __construct()
     {
-        $this->variables = new ListCollection(Variables::class);
+        $this->variables = new ListCollection();
     }
 
     public function addSource(Variables $variables): self
@@ -33,7 +33,7 @@ class VariablesExporter
 
                     return $all;
                 },
-                new Variables()
+                new Variables(),
             );
     }
 }

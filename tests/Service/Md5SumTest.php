@@ -25,7 +25,7 @@ class Md5SumTest extends AbstractTestCase
             new Md5SumConfig([
                 __DIR__ . '/../Fixtures/Md5/style.css' => 'CSSVER',
                 __DIR__ . '/../Fixtures/Md5/index.js' => 'JSVER',
-            ])
+            ]),
         );
 
         $variables = $this->md5sum->findMd5Sum($config);
