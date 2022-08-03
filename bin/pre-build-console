@@ -11,22 +11,31 @@ use MF\PreBuild\Facade\ParseVariablesFacade;
 use MF\PreBuild\Git\GitCommandFactory;
 use MF\PreBuild\Service\ConfigReader;
 use MF\PreBuild\Service\GitParser;
+use MF\PreBuild\Service\GitProcess;
 use MF\PreBuild\Service\Md5Sum;
 use MF\PreBuild\Service\VariablesExporter;
 use Symfony\Component\Console\Application;
 
-function requireIfExists(string $file)
+function requireIfExists(string $file): bool
 {
     if (file_exists($file)) {
-        return require_once $file;
+        require_once $file;
+        return true;
     }
 
-    return null;
+    return false;
 }
 
-if (!requireIfExists(__DIR__ . '/../vendor/autoload.php') // when used directly
-    && !requireIfExists(__DIR__ . '/../../../autoload.php') // when installed as dependency
-) {
+$rootForLocalDir = __DIR__ . '/../';
+$rootAsDependency = __DIR__ . '/../../../../';
+
+$repositoryPath = null;
+
+if (requireIfExists($rootForLocalDir . 'vendor/autoload.php')) {
+    $repositoryPath = $rootForLocalDir;
+} elseif (requireIfExists($rootAsDependency . 'vendor/autoload.php')) {
+    $repositoryPath = $rootAsDependency;
+} else {
     die(
         'You must set up the project dependencies, run the following commands:' . PHP_EOL .
         'curl -sS https://getcomposer.org/installer | php' . PHP_EOL .
@@ -39,17 +48,18 @@ $composer = json_decode(file_get_contents(__DIR__ . '/../composer.json'), true);
 
 // services definition
 
+$gitProcess = new GitProcess($repositoryPath);
 $configReader = new ConfigReader();
-$gitWrapper = new GitWrapper();
 $gitCommandFactory = new GitCommandFactory();
-$gitParser = new GitParser($gitWrapper, $gitCommandFactory);
+$gitParser = new GitParser($gitProcess, $gitCommandFactory);
 $variablesExporter = new VariablesExporter();
 $md5sum = new Md5Sum();
 
 // Subscribers
 
 // Commands
-$commands = new ListCollection(AbstractCommand::class);
+/** @phpstan-var ListCollection<AbstractCommand> $commands */
+$commands = new ListCollection();
 $commands->add(
     new ParseVariablesCommand(
         $composer,

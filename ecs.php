@@ -6,5 +6,5 @@ use Symfony\Component\DependencyInjection\Loader\Configurator\ContainerConfigura
 
 return static function (ContainerConfigurator $containerConfigurator): void {
     $containerConfigurator->import(__DIR__ . '/vendor/lmc/coding-standard/ecs.php');
-    $containerConfigurator->import(__DIR__ . '/vendor/lmc/coding-standard/ecs-7.4.php');
+    $containerConfigurator->import(__DIR__ . '/vendor/lmc/coding-standard/ecs-8.1.php');
 };

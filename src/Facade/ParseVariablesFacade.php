@@ -14,7 +14,7 @@ class ParseVariablesFacade
         private ConfigReader $configReader,
         private GitParser $gitParser,
         private VariablesExporter $variablesExporter,
-        private Md5Sum $md5Sum
+        private Md5Sum $md5Sum,
     ) {
     }
 

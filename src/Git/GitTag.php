@@ -2,13 +2,13 @@
 
 namespace MF\PreBuild\Git;
 
-use GitWrapper\GitWrapper;
+use MF\PreBuild\Service\GitProcess;
 
 class GitTag implements GitCommandInterface
 {
-    public function execute(GitWrapper $git): string
+    public function execute(GitProcess $git): string
     {
-        $tag = $git->git('describe --tags --abbrev=0');
+        $tag = $git->git('describe', '--tags', '--abbrev=0');
 
         return trim($tag);
     }

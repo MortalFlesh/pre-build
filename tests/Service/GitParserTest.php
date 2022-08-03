@@ -2,7 +2,6 @@
 
 namespace MF\PreBuild\Service;
 
-use GitWrapper\GitWrapper;
 use MF\PreBuild\Entity\Config;
 use MF\PreBuild\Entity\GitConfig;
 use MF\PreBuild\Fixtures\Git\GitCommand;
@@ -24,8 +23,8 @@ class GitParserTest extends TestCase
         $this->gitCommandFactory = m::mock(GitCommandFactory::class);
 
         $this->gitParser = new GitParser(
-            new GitWrapper(),
-            $this->gitCommandFactory
+            new GitProcess(__DIR__ . '/../../'),
+            $this->gitCommandFactory,
         );
     }
 
@@ -38,7 +37,7 @@ class GitParserTest extends TestCase
                 'url' => 'GIT_URL',
                 'tag' => 'GIT_TAG',
             ]),
-            null
+            null,
         );
         $expectedVariables = [
             'GIT_COMMIT' => 'VALUE-commit',
@@ -47,7 +46,7 @@ class GitParserTest extends TestCase
             'GIT_TAG' => 'VALUE-tag',
         ];
 
-        $this->gitCommandFactory->shouldReceive('createGitCommand')
+        $this->gitCommandFactory->expects('createGitCommand')
             ->times(4)
             ->andReturn(
                 new GitCommand('VALUE-commit'),

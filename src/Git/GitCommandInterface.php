@@ -2,9 +2,9 @@
 
 namespace MF\PreBuild\Git;
 
-use GitWrapper\GitWrapper;
+use MF\PreBuild\Service\GitProcess;
 
 interface GitCommandInterface
 {
-    public function execute(GitWrapper $git): string;
+    public function execute(GitProcess $git): string;
 }

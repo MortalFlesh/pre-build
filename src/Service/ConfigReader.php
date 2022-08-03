@@ -18,7 +18,7 @@ class ConfigReader
 
         return new Config(
             array_key_exists('git', $parse) ? $this->parseGitConfig($parse) : null,
-            array_key_exists('md5sum', $parse) ? $this->parseMd5Config($parse) : null
+            array_key_exists('md5sum', $parse) ? $this->parseMd5Config($parse) : null,
         );
     }
 

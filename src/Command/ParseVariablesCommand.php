@@ -35,7 +35,9 @@ class ParseVariablesCommand extends AbstractCommand
             Assertion::inArray($outputPath, ['std', 'visual']);
             $isStdOutput = $outputPath === 'std';
 
-            $variables = $this->parseVariablesFacade->parseVariables($configPath);
+            $variables = $this->parseVariablesFacade
+                ->parseVariables($configPath)
+                ->asImmutable();
 
             if ($isStdOutput) {
                 foreach ($variables as $key => $value) {
@@ -47,9 +49,9 @@ class ParseVariablesCommand extends AbstractCommand
                 $this->io->table(
                     ['key', 'value'],
                     $variables
-                        ->map(fn ($k, $v) => [$k, $v], 'array')
+                        ->map(fn ($k, $v) => [$k, $v])
                         ->values()
-                        ->toArray()
+                        ->toArray(),
                 );
 
                 $this->io->success('Done');

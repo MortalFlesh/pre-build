@@ -14,7 +14,7 @@ class ComposerTest extends TestCase
         $this->assertArrayHasKey(
             'version',
             $composer,
-            'Since the version is used inside application and the console, it must remain here.'
+            'Since the version is used inside application and the console, it must remain here.',
         );
     }
 }

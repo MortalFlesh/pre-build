@@ -2,14 +2,14 @@
 
 namespace MF\PreBuild\Git;
 
-use GitWrapper\GitWrapper;
+use MF\PreBuild\Service\GitProcess;
 
 class GitBranch implements GitCommandInterface
 {
     /** @see https://stackoverflow.com/questions/6245570/how-to-get-the-current-branch-name-in-git */
-    public function execute(GitWrapper $git): string
+    public function execute(GitProcess $git): string
     {
-        $branch = $git->git('rev-parse --abbrev-ref HEAD');
+        $branch = $git->git('rev-parse', '--abbrev-ref', 'HEAD');
 
         return trim($branch);
     }

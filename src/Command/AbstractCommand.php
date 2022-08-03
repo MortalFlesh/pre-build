@@ -35,8 +35,8 @@ abstract class AbstractCommand extends Command
         $this->io->title(
             sprintf(
                 '<fg=cyan>MF/Pre build</> [<fg=magenta>%s</>] will prepare everything for you <fg=red>:)</>',
-                $version
-            )
+                $version,
+            ),
         );
         $this->io->section((string) $this->getName());
     }

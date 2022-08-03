@@ -2,4 +2,3 @@ parameters:
     checkMissingIterableValueType: false
 
     ignoreErrors:
-        - '#PHPDoc tag \@var for property MF\\PreBuild\\Service\\VariablesExporter::\$variables with type array<.*?>\|\(iterable<.*?>&MF\\Collection\\.*?\) is not subtype of native type MF\\Collection\\.*#'

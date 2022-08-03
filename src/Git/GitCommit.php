@@ -2,13 +2,13 @@
 
 namespace MF\PreBuild\Git;
 
-use GitWrapper\GitWrapper;
+use MF\PreBuild\Service\GitProcess;
 
 class GitCommit implements GitCommandInterface
 {
-    public function execute(GitWrapper $git): string
+    public function execute(GitProcess $git): string
     {
-        $commit = $git->git('rev-parse HEAD');
+        $commit = $git->git('rev-parse', 'HEAD');
 
         return trim($commit);
     }
