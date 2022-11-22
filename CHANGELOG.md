@@ -3,6 +3,7 @@
 <!-- There should always be "Unreleased" section at the beginning. -->
 
 ## Unreleased
+- Use empty string for invalid `tag`
 
 ## 5.0.0 - 2022-08-03
 - Require php 8.1
