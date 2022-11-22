@@ -3,6 +3,8 @@
 <!-- There should always be "Unreleased" section at the beginning. -->
 
 ## Unreleased
+
+## 5.1.0 - 2022-11-22
 - Use empty string for invalid `tag`
 
 ## 5.0.0 - 2022-08-03
